@@ -1,5 +1,6 @@
 {
   "name": "electron-umi-boilerplate",
+  "productName": "electron-umi-boilerplate",
   "version": "1.0.0",
   "license": "MIT",
   "main": "app/main.js",
