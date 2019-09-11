@@ -35,7 +35,9 @@ export default ()=>{
     win.webContents.on('did-finish-load',()=>{
         win.show();
         win.center();
-        win.openDevTools();
+        if(isDevelopment){
+            win.openDevTools();
+        }
     });
 
     win.on('closed',()=>{
