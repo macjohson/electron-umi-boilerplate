@@ -25,7 +25,7 @@
   "scripts": {
     "postinstall": "electron-builder install-app-deps",
     "dev:electron": "webpack --config webpack.main.js --env=development && electron ./app/main.js",
-    "dev": "concurrently \"umi dev\" \"wait-on tcp:8000 && yarn run dev:electron\"",
+    "dev": "concurrently -n \"umi,electron\" \"umi dev\" \"wait-on tcp:8000 && yarn run dev:electron\"",
     "release": "umi build && webpack --config webpack.main.js --env=production && electron-builder"
   },
   "devDependencies": {
