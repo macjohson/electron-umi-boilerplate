@@ -1,0 +1,44 @@
+{
+  "name": "electron-umi-boilerplate",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "app/main.js",
+  "author": "liujianlin",
+  "description": "electron+umi 开发模版",
+  "build": {
+    "appId": "com.huanshao.tech",
+    "files": [
+      "app/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "buildResources": "resources"
+    },
+    "publish": null,
+    "nsis": {
+      "allowToChangeInstallationDirectory": true,
+      "oneClick": false
+    }
+  },
+  "scripts": {
+    "postinstall": "electron-builder install-app-deps",
+    "dev:electron": "webpack --config webpack.main.js --env=development && electron ./app/main.js",
+    "dev": "concurrently \"umi dev\" \"wait-on tcp:8000 && yarn run dev:electron\"",
+    "release": "umi build && webpack --config webpack.main.js --env=production && electron-builder"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "babel-loader": "^8.0.6",
+    "concurrently": "^4.1.2",
+    "copy-webpack-plugin": "^5.0.4",
+    "cross-env": "^5.2.1",
+    "electron": "^6.0.8",
+    "electron-builder": "^21.2.0",
+    "wait-on": "^3.3.0",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.8",
+    "webpack-node-externals": "^1.7.2"
+  }
+}
